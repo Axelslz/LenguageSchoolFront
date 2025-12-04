@@ -1,0 +1,11 @@
+/* src/index.css */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #fdfbf7; /* Un color crema suave de fondo, similar al de la cafetería */
+}
+
+a {
+  text-decoration: none; /* Quita el subrayado de los enlaces por defecto */
+}
