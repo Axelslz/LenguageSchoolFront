@@ -16,7 +16,8 @@ const navItems = [
 const colors = {
   azul: '#11224E', 
   aqua: '#00BFA5', 
-  blanco: '#FFFFFF'
+  blanco: '#dbd4d4',
+  grisFondo: '#F8F9FA' // Un gris ultra claro por si lo necesitamos
 };
 
 const Navbar = () => {
@@ -39,7 +40,6 @@ const Navbar = () => {
             </ListItemButton>
           </ListItem>
         ))}
-        {/* Botones móviles */}
         <ListItem disablePadding sx={{ mt: 2 }}>
           <ListItemButton sx={{ textAlign: 'center', color: colors.azul, justifyContent: 'center' }}>
             <Typography fontWeight="bold">Iniciar Sesión</Typography>
@@ -47,7 +47,7 @@ const Navbar = () => {
         </ListItem>
         <ListItem disablePadding>
           <Box sx={{ width: '100%', px: 2, mt: 1 }}>
-            <Button fullWidth variant="contained" sx={{ bgcolor: colors.aqua, '&:hover': { bgcolor: '#009688' } }}>
+            <Button fullWidth variant="contained" sx={{ bgcolor: colors.aqua, color: colors.blanco, '&:hover': { bgcolor: '#009688' } }}>
               Registro
             </Button>
           </Box>
@@ -58,14 +58,21 @@ const Navbar = () => {
 
   return (
     <Box sx={{ display: 'flex' }}>
-      <AppBar position="sticky" sx={{ bgcolor: colors.azul, boxShadow: 'none', borderBottom: `2px solid ${colors.aqua}` }}>
+      {/* APPBAR CAMBIADO: Fondo blanco, sombra muy suave y sin borde grueso */}
+      <AppBar 
+        position="sticky" 
+        sx={{ 
+          bgcolor: colors.blanco, 
+          boxShadow: '0px 2px 10px rgba(0,0,0,0.05)', // Sombra elegante y sutil
+        }}
+      >
         <Toolbar>
           <IconButton
             color="inherit"
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: 'none' }, color: colors.blanco }}
+            sx={{ mr: 2, display: { sm: 'none' }, color: colors.azul }} // Icono hamburguesa en azul
           >
             <MenuIcon />
           </IconButton>
@@ -78,8 +85,9 @@ const Navbar = () => {
               flexGrow: 1, 
               display: { xs: 'none', sm: 'block' },
               textDecoration: 'none',
-              color: colors.blanco,
-              fontWeight: 800
+              color: colors.azul, // Texto "Ling" en azul
+              fontWeight: 800,
+              letterSpacing: '-0.5px' // Un toque moderno en la tipografía
             }}
           >
             Ling <span style={{ color: colors.aqua }}>Up</span>
@@ -93,10 +101,15 @@ const Navbar = () => {
                 component={RouterLink} 
                 to={item.path}
                 sx={{ 
-                  color: colors.blanco, 
+                  color: colors.azul, // Enlaces en azul
                   mx: 1, 
-                  fontWeight: 500,
-                  '&:hover': { color: colors.aqua, backgroundColor: 'transparent' }
+                  fontWeight: 600, // Un poco más de peso para que destaquen en blanco
+                  transition: 'all 0.2s',
+                  '&:hover': { 
+                    color: colors.aqua, 
+                    backgroundColor: 'transparent',
+                    transform: 'translateY(-2px)' // Efecto de salto sutil
+                  }
                 }}
               >
                 {item.label}
@@ -108,10 +121,10 @@ const Navbar = () => {
           <Box sx={{ display: { xs: 'none', sm: 'flex' }, gap: 2 }}>
             <Button 
               sx={{ 
-                color: colors.blanco, 
+                color: colors.azul, // Botón secundario en azul
                 textTransform: 'none', 
                 fontWeight: 'bold',
-                '&:hover': { color: colors.aqua }
+                '&:hover': { color: colors.aqua, backgroundColor: 'rgba(0, 191, 165, 0.05)' }
               }}
             >
               Iniciar Sesión
@@ -125,7 +138,11 @@ const Navbar = () => {
                 fontWeight: 'bold',
                 borderRadius: '20px',
                 px: 3,
-                '&:hover': { bgcolor: '#009688' }
+                boxShadow: '0 4px 10px rgba(0, 191, 165, 0.3)', // Resplandor aqua
+                '&:hover': { 
+                  bgcolor: '#009688',
+                  boxShadow: '0 6px 15px rgba(0, 191, 165, 0.4)',
+                }
               }}
             >
               Registro
@@ -134,7 +151,6 @@ const Navbar = () => {
         </Toolbar>
       </AppBar>
 
-      {/* Menú Lateral para Móviles */}
       <Drawer
         variant="temporary"
         open={mobileOpen}

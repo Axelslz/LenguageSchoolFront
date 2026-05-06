@@ -1,14 +1,18 @@
-import { Box, Container } from '@mui/material';
+// ✅ MAINLAYOUT CORREGIDO
 import { Outlet } from 'react-router-dom';
-import Navbar from '../components/Navbar';
+import { Box } from '@mui/material';
+import Navbar from '../components/Navbar'; // Asumiendo que aquí tienes tu barra de navegación
 
 const MainLayout = () => {
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+      {/* Tu barra de navegación arriba */}
       <Navbar />
-      <Container component="main" sx={{ mt: 4, mb: 4, flexGrow: 1 }}>
+      
+      {/* El contenedor principal de tus vistas, SIN MÁRGENES NI PADDING */}
+      <Box component="main" sx={{ flexGrow: 1, width: '100%' }}>
         <Outlet /> 
-      </Container>
+      </Box>
     </Box>
   );
 };
