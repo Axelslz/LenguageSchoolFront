@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { 
-  AppBar, Toolbar, Typography, Button, IconButton, 
+  AppBar, Toolbar, Button, IconButton, 
   Box, Drawer, List, ListItem, ListItemButton, ListItemText 
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink, useLocation } from 'react-router-dom';
+
+const LOGO_URL = 'https://res.cloudinary.com/dqozuofy6/image/upload/v1778108688/LOGO_SUPERIOR_V2_w5yige.png'; 
 
 const navItems = [
   { label: 'Inicio', path: '/' },
@@ -16,12 +18,13 @@ const navItems = [
 const colors = {
   azul: '#11224E', 
   aqua: '#00BFA5', 
-  blanco: '#dbd4d4',
-  grisFondo: '#F8F9FA' // Un gris ultra claro por si lo necesitamos
+  blanco: '#FFFFFF', 
+  grisFondo: '#F8F9FA'
 };
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const location = useLocation(); 
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -29,124 +32,125 @@ const Navbar = () => {
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', bgcolor: colors.blanco, height: '100%' }}>
-      <Typography variant="h5" sx={{ my: 3, fontWeight: 'bold', color: colors.azul }}>
-        Ling <span style={{color: colors.aqua}}>Up</span>
-      </Typography>
+
+      <Box sx={{ my: 3, display: 'flex', justifyContent: 'center' }}>
+        <Box 
+          component="img" 
+          src={LOGO_URL} 
+          alt="Ling Up Logo" 
+          sx={{ height: 50, objectFit: 'contain' }} 
+        />
+      </Box>
       <List>
-        {navItems.map((item) => (
-          <ListItem key={item.label} disablePadding>
-            <ListItemButton component={RouterLink} to={item.path} sx={{ textAlign: 'center', color: colors.azul }}>
-              <ListItemText primary={item.label} primaryTypographyProps={{ fontWeight: 500 }} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-        <ListItem disablePadding sx={{ mt: 2 }}>
-          <ListItemButton sx={{ textAlign: 'center', color: colors.azul, justifyContent: 'center' }}>
-            <Typography fontWeight="bold">Iniciar Sesión</Typography>
-          </ListItemButton>
-        </ListItem>
-        <ListItem disablePadding>
-          <Box sx={{ width: '100%', px: 2, mt: 1 }}>
-            <Button fullWidth variant="contained" sx={{ bgcolor: colors.aqua, color: colors.blanco, '&:hover': { bgcolor: '#009688' } }}>
-              Registro
-            </Button>
-          </Box>
-        </ListItem>
+        {navItems.map((item) => {
+          const isActive = location.pathname === item.path;
+          return (
+            <ListItem key={item.label} disablePadding>
+              <ListItemButton 
+                component={RouterLink} 
+                to={item.path} 
+                sx={{ 
+                  textAlign: 'center', 
+                  color: isActive ? colors.aqua : colors.azul,
+                  bgcolor: isActive ? 'rgba(0, 191, 165, 0.1)' : 'transparent',
+                  borderLeft: isActive ? `4px solid ${colors.aqua}` : '4px solid transparent',
+                  transition: 'all 0.3s ease'
+                }}
+              >
+                <ListItemText primary={item.label} primaryTypographyProps={{ fontWeight: isActive ? 800 : 500 }} />
+              </ListItemButton>
+            </ListItem>
+          );
+        })}
       </List>
     </Box>
   );
 
   return (
     <Box sx={{ display: 'flex' }}>
-      {/* APPBAR CAMBIADO: Fondo blanco, sombra muy suave y sin borde grueso */}
       <AppBar 
         position="sticky" 
         sx={{ 
-          bgcolor: colors.blanco, 
-          boxShadow: '0px 2px 10px rgba(0,0,0,0.05)', // Sombra elegante y sutil
+          bgcolor: 'rgba(255, 255, 255, 0.9)', 
+          backdropFilter: 'blur(10px)', 
+          boxShadow: '0px 4px 20px rgba(0,0,0,0.06)', 
         }}
       >
-        <Toolbar>
+        <Toolbar sx={{ py: 0.5 }}>
           <IconButton
             color="inherit"
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: 'none' }, color: colors.azul }} // Icono hamburguesa en azul
+            sx={{ mr: 2, display: { sm: 'none' }, color: colors.azul }} 
           >
             <MenuIcon />
           </IconButton>
           
-          <Typography
-            variant="h5"
-            component={RouterLink}
-            to="/"
+          <Box 
+            component={RouterLink} 
+            to="/" 
             sx={{ 
               flexGrow: 1, 
-              display: { xs: 'none', sm: 'block' },
+              display: { xs: 'none', sm: 'flex' },
+              alignItems: 'center',
               textDecoration: 'none',
-              color: colors.azul, // Texto "Ling" en azul
-              fontWeight: 800,
-              letterSpacing: '-0.5px' // Un toque moderno en la tipografía
             }}
           >
-            Ling <span style={{ color: colors.aqua }}>Up</span>
-          </Typography>
-
-          {/* Menú Desktop */}
-          <Box sx={{ display: { xs: 'none', sm: 'flex' }, alignItems: 'center', flexGrow: 1, justifyContent: 'center' }}>
-            {navItems.map((item) => (
-              <Button 
-                key={item.label} 
-                component={RouterLink} 
-                to={item.path}
-                sx={{ 
-                  color: colors.azul, // Enlaces en azul
-                  mx: 1, 
-                  fontWeight: 600, // Un poco más de peso para que destaquen en blanco
-                  transition: 'all 0.2s',
-                  '&:hover': { 
-                    color: colors.aqua, 
-                    backgroundColor: 'transparent',
-                    transform: 'translateY(-2px)' // Efecto de salto sutil
-                  }
-                }}
-              >
-                {item.label}
-              </Button>
-            ))}
+            <Box 
+              component="img" 
+              src={LOGO_URL} 
+              alt="Ling Up Logo" 
+              sx={{ 
+                height: 45, 
+                objectFit: 'contain',
+                transition: 'transform 0.3s',
+                '&:hover': { transform: 'scale(1.05)' } 
+              }} 
+            />
           </Box>
 
-          {/* Botones de Acción Desktop */}
-          <Box sx={{ display: { xs: 'none', sm: 'flex' }, gap: 2 }}>
-            <Button 
-              sx={{ 
-                color: colors.azul, // Botón secundario en azul
-                textTransform: 'none', 
-                fontWeight: 'bold',
-                '&:hover': { color: colors.aqua, backgroundColor: 'rgba(0, 191, 165, 0.05)' }
-              }}
-            >
-              Iniciar Sesión
-            </Button>
-            <Button 
-              variant="contained" 
-              sx={{ 
-                bgcolor: colors.aqua, 
-                color: colors.blanco,
-                textTransform: 'none',
-                fontWeight: 'bold',
-                borderRadius: '20px',
-                px: 3,
-                boxShadow: '0 4px 10px rgba(0, 191, 165, 0.3)', // Resplandor aqua
-                '&:hover': { 
-                  bgcolor: '#009688',
-                  boxShadow: '0 6px 15px rgba(0, 191, 165, 0.4)',
-                }
-              }}
-            >
-              Registro
-            </Button>
+          <Box sx={{ display: { xs: 'none', sm: 'flex' }, alignItems: 'center', justifyContent: 'flex-end', pr: 2 }}>
+            {navItems.map((item) => {
+              const isActive = location.pathname === item.path;
+              return (
+                <Button 
+                  key={item.label} 
+                  component={RouterLink} 
+                  to={item.path}
+                  disableRipple
+                  sx={{ 
+                    color: isActive ? colors.aqua : colors.azul, 
+                    mx: 1.5, 
+                    fontWeight: 700,
+                    textTransform: 'none', 
+                    fontSize: '1rem',
+                    position: 'relative',
+                    backgroundColor: 'transparent',
+                    '&::after': { 
+                      content: '""',
+                      position: 'absolute',
+                      width: isActive ? '100%' : '0%',
+                      height: '3px',
+                      bottom: '4px',
+                      left: '0',
+                      bgcolor: colors.aqua,
+                      transition: 'width 0.3s ease-in-out',
+                      borderRadius: '2px',
+                    },
+                    '&:hover': { 
+                      color: colors.aqua, 
+                      backgroundColor: 'transparent',
+                    },
+                    '&:hover::after': {
+                      width: '100%' 
+                    }
+                  }}
+                >
+                  {item.label}
+                </Button>
+              );
+            })}
           </Box>
         </Toolbar>
       </AppBar>
@@ -158,7 +162,7 @@ const Navbar = () => {
         ModalProps={{ keepMounted: true }}
         sx={{
           display: { xs: 'block', sm: 'none' },
-          '& .MuiDrawer-paper': { boxSizing: 'border-box', width: 250 },
+          '& .MuiDrawer-paper': { boxSizing: 'border-box', width: 260 },
         }}
       >
         {drawer}
@@ -168,3 +172,11 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+
+// https://res.cloudinary.com/dqozuofy6/image/upload/v1778109244/china_gwtm5f.png
+// https://res.cloudinary.com/dqozuofy6/image/upload/v1778109244/japones_xsyx0z.png
+// https://res.cloudinary.com/dqozuofy6/image/upload/v1778109244/bellas_artes_ff2rkr.png
+// https://res.cloudinary.com/dqozuofy6/image/upload/v1778109244/ingles_yojym2.png
+// https://res.cloudinary.com/dqozuofy6/image/upload/v1778109244/aleman_sxslts.png
+// https://res.cloudinary.com/dqozuofy6/image/upload/v1778109243/frances_mxapi6.png

@@ -1,11 +1,8 @@
 import { Box, Typography, Button, Container } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
 import { keyframes } from '@mui/system';
-
-// Tu imagen de fondo
 import bgImage from '../assets/fondo-inicio.png'; 
 
-// --- ANIMACIONES CSS ---
 const fadeInUp = keyframes`
   0% { opacity: 0; transform: translateY(50px); }
   100% { opacity: 1; transform: translateY(0); }
@@ -26,7 +23,6 @@ const Home = () => {
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         minHeight: { xs: 'calc(100vh - 56px)', sm: 'calc(100vh - 64px)' },
-        // Obligamos a que abarque todo el ancho de la pantalla
         width: '100%', 
         margin: 0,
         padding: 0,
@@ -36,7 +32,7 @@ const Home = () => {
         overflow: 'hidden',
       }}
     >
-      {/* Capa de degradado: De Azul oscuro a Aqua transparente */}
+
       <Box 
         sx={{
           position: 'absolute',
@@ -56,7 +52,6 @@ const Home = () => {
           animation: `${float} 6s ease-in-out infinite` 
         }}
       >
-        {/* TÍTULO */}
         <Typography 
           variant="h2" 
           component="h1" 
@@ -72,7 +67,6 @@ const Home = () => {
           Domina un nuevo idioma con <span style={{ color: '#00BFA5' }}>Ling Up</span>
         </Typography>
         
-        {/* SUBTÍTULO */}
         <Typography 
           variant="h6" 
           sx={{ 
@@ -88,7 +82,6 @@ const Home = () => {
           Aprende con confianza y creatividad. Descubre nuestros cursos interactivos y lleva tu comunicación al siguiente nivel en un entorno diseñado para ti.
         </Typography>
 
-        {/* BOTONES */}
         <Box 
           sx={{ 
             display: 'flex', 
