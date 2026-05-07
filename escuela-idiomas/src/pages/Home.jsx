@@ -64,7 +64,7 @@ const Home = () => {
             animation: `${fadeInUp} 1s cubic-bezier(0.4, 0, 0.2, 1) forwards`,
           }}
         >
-          Domina un nuevo idioma con <span style={{ color: '#00BFA5' }}>Ling Up</span>
+          Domina un nuevo idioma con <span style={{ color: '#00BFA5' }}>LingUp</span>
         </Typography>
         
         <Typography 

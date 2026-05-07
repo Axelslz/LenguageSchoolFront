@@ -1,6 +1,13 @@
 import { useState } from 'react';
 import { Box, Container, Typography, Card, CardContent, Button } from '@mui/material';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import { keyframes } from '@mui/system';
+import fondoInicio from '../assets/fondo-inicio.png';
+
+const fadeInUp = keyframes`
+  0% { opacity: 0; transform: translateY(50px); }
+  100% { opacity: 1; transform: translateY(0); }
+`;
 
 const colors = {
   azul: '#11224E',
@@ -14,46 +21,46 @@ const idiomasData = [
     nombre: 'Español',
     descripcion: 'Perfecciona tu gramática, ortografía y redacción. Ideal para profesionales y extranjeros.',
     detalles: 'Inmersión cultural, modismos y español de negocios.',
-    imagen: 'https://images.unsplash.com/photo-1585464231875-d9ef1f5ad396?auto=format&fit=crop&q=80&w=500' 
+    imagen: 'https://res.cloudinary.com/dqozuofy6/image/upload/v1778109244/bellas_artes_ff2rkr.png' 
   },
   {
     id: 2,
     nombre: 'Inglés',
     descripcion: 'Enfocado en negocios y comunicación internacional. Niveles desde básico hasta avanzado.',
     detalles: 'Clases dinámicas, preparación para certificaciones y club de conversación.',
-    imagen: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&q=80&w=500'
+    imagen: 'https://res.cloudinary.com/dqozuofy6/image/upload/v1778109244/ingles_yojym2.png'
   },
   {
     id: 3,
     nombre: 'Alemán',
     descripcion: 'Abre puertas laborales en Europa y la industria tecnológica. Cursos diseñados para el dominio técnico.',
     detalles: 'Metodología estructurada para un aprendizaje rápido y sólido.',
-    imagen: 'https://images.unsplash.com/photo-1599946347371-68eb71b16afc?auto=format&fit=crop&q=80&w=500'
+    imagen: 'https://res.cloudinary.com/dqozuofy6/image/upload/v1778109244/aleman_sxslts.png'
   },
   {
     id: 4,
     nombre: 'Francés',
     descripcion: 'Domina la lengua de la diplomacia. Ideal para estudiantes de intercambio y apasionados del arte.',
     detalles: 'Enfoque en gramática y fonética precisa con profesores nativos.',
-    imagen: 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&q=80&w=500'
+    imagen: 'https://res.cloudinary.com/dqozuofy6/image/upload/v1778109243/frances_mxapi6.png'
   },
   {
     id: 5,
     nombre: 'Chino',
     descripcion: 'Conecta con el gigante asiático. Aprende mandarín desde las bases hasta la fluidez comercial.',
     detalles: 'Caligrafía, tonos y preparación para el examen HSK.',
-    imagen: 'https://images.unsplash.com/photo-1508804185872-d7bad900fd43?auto=format&fit=crop&q=80&w=500'
+    imagen: 'https://res.cloudinary.com/dqozuofy6/image/upload/v1778109244/china_gwtm5f.png'
   },
   {
     id: 6,
     nombre: 'Japonés',
     descripcion: 'Sumérgete en la cultura nipona, desde el anime hasta la etiqueta de negocios formal.',
     detalles: 'Dominio de Hiragana, Katakana, Kanji y conversación fluida.',
-    imagen: 'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&q=80&w=500'
+    imagen: 'https://res.cloudinary.com/dqozuofy6/image/upload/v1778109244/japones_xsyx0z.png'
   }
 ];
 
-const FlipCard = ({ idioma }) => {
+const FlipCard = ({ idioma, index }) => {
   const [flipped, setFlipped] = useState(false);
 
   return (
@@ -63,6 +70,8 @@ const FlipCard = ({ idioma }) => {
         perspective: '1000px',
         cursor: 'pointer',
         height: '400px',
+        opacity: 0,
+        animation: `${fadeInUp} 0.8s cubic-bezier(0.4, 0, 0.2, 1) ${0.3 + (index * 0.1)}s forwards`,
         '&:hover': { transform: 'scale(1.03)' },
         transition: 'transform 0.3s ease'
       }}
@@ -107,7 +116,6 @@ const FlipCard = ({ idioma }) => {
           </CardContent>
         </Card>
 
-        {/* CARA TRASERA */}
         <Card
           sx={{
             position: 'absolute',
@@ -137,10 +145,7 @@ const FlipCard = ({ idioma }) => {
             </Typography>
           </Box>
           
-          {/* Botones de la Cara Trasera */}
           <Box sx={{ width: '100%', mt: 2 }}>
-            
-            
             <Typography variant="caption" sx={{ display: 'block', textAlign: 'center', color: '#718096', mb: 0.5 }}>
               ¿Ya estás inscrito?
             </Typography>
@@ -156,7 +161,6 @@ const FlipCard = ({ idioma }) => {
               }}
               onClick={(e) => {
                 e.stopPropagation();
-                // Navegación a vista de login
                 console.log("Navegar a Iniciar Sesión");
               }}
             >
@@ -173,15 +177,47 @@ const Idiomas = () => {
   return (
     <Box 
       sx={{ 
-        bgcolor: colors.azul,
-        minHeight: 'calc(100vh - 80px)', 
+        backgroundImage: `url(${fondoInicio})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        minHeight: { xs: 'calc(100vh - 56px)', sm: 'calc(100vh - 64px)' },
+        width: '100%',
+        margin: 0,
+        padding: 0,
+        position: 'relative',
+        overflow: 'hidden',
         py: { xs: 8, md: 10 } 
       }}
     >
-      <Container maxWidth="lg">
-        {/* Encabezado */}
-        <Box sx={{ textAlign: 'center', mb: 8 }}>
-          <Typography variant="h3" sx={{ fontWeight: 900, color: colors.blanco, mb: 1 }}>
+      <Box 
+        sx={{
+          position: 'absolute',
+          top: 0, left: 0, right: 0, bottom: 0,
+          background: 'linear-gradient(135deg, rgba(17, 34, 78, 0.9) 0%, rgba(0, 191, 165, 0.4) 100%)',
+          zIndex: 1
+        }} 
+      />
+
+      <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2 }}>
+        
+        <Box 
+          sx={{ 
+            textAlign: 'center', 
+            mb: 8,
+            opacity: 0,
+            animation: `${fadeInUp} 1s cubic-bezier(0.4, 0, 0.2, 1) forwards` 
+          }}
+        >
+          <Typography 
+            variant="h3" 
+            sx={{ 
+              fontWeight: 900, 
+              color: colors.blanco, 
+              mb: 1,
+              textShadow: '0px 4px 10px rgba(0,0,0,0.3)' 
+            }}
+          >
             Nuestros <span style={{ color: colors.aqua }}>Idiomas</span>
           </Typography>
           <Box sx={{ width: '100px', height: '5px', bgcolor: colors.aqua, mx: 'auto', borderRadius: '3px', mb: 3 }} />
@@ -190,7 +226,6 @@ const Idiomas = () => {
           </Typography>
         </Box>
 
-        {/* Cuadrícula */}
         <Box 
           sx={{ 
             display: 'grid', 
@@ -198,12 +233,11 @@ const Idiomas = () => {
             gap: { xs: 4, md: 5 } 
           }}
         >
-          {idiomasData.map((idioma) => (
-            <FlipCard key={idioma.id} idioma={idioma} />
+          {idiomasData.map((idioma, index) => (
+            <FlipCard key={idioma.id} idioma={idioma} index={index} />
           ))}
         </Box>
 
-        {/* Banner inferior con WhatsApp para registro/dudas generales */}
         <Box 
           sx={{ 
             display: 'flex',
@@ -215,7 +249,9 @@ const Idiomas = () => {
             bgcolor: 'rgba(255, 255, 255, 0.05)', 
             border: '1px solid rgba(255, 255, 255, 0.1)',
             borderRadius: '16px',
-            backdropFilter: 'blur(10px)'
+            backdropFilter: 'blur(10px)',
+            opacity: 0,
+            animation: `${fadeInUp} 1s cubic-bezier(0.4, 0, 0.2, 1) 0.8s forwards`
           }}
         >
           <Typography variant="h5" sx={{ color: colors.blanco, fontWeight: 700, mb: 2, maxWidth: '800px' }}>

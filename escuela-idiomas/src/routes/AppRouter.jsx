@@ -3,8 +3,7 @@ import MainLayout from '../layouts/MainLayout';
 import Home from '../pages/Home';
 import QuienesSomos from '../pages/QuienesSomos'; 
 import Idiomas from '../pages/Idiomas';
-
-const Contactos = () => <h1>Contactos</h1>;
+import Contactos from '../pages/Contactos';
 
 const AppRouter = () => {
   return (
