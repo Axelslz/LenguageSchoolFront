@@ -33,11 +33,13 @@ const Home = () => {
       }}
     >
 
+      {/* Capa superpuesta ajustada: mucho más transparente para dejar brillar la imagen, 
+          pero con el oscurecimiento mínimo necesario para que el texto blanco sea legible */}
       <Box 
         sx={{
           position: 'absolute',
           top: 0, left: 0, right: 0, bottom: 0,
-          background: 'linear-gradient(135deg, rgba(17, 34, 78, 0.9) 0%, rgba(0, 191, 165, 0.4) 100%)',
+          background: 'linear-gradient(135deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.1) 100%)',
           zIndex: 1
         }} 
       />
@@ -60,7 +62,7 @@ const Home = () => {
             mb: 3,
             color: '#FFFFFF',
             fontSize: { xs: '2.8rem', md: '4.5rem' },
-            textShadow: '0px 4px 15px rgba(0,0,0,0.3)',
+            textShadow: '0px 4px 15px rgba(0,0,0,0.5)', // Sombra un poco más marcada para contraste
             animation: `${fadeInUp} 1s cubic-bezier(0.4, 0, 0.2, 1) forwards`,
           }}
         >
@@ -71,10 +73,11 @@ const Home = () => {
           variant="h6" 
           sx={{ 
             mb: 6, 
-            fontWeight: 400, 
-            color: '#E0E0E0',
+            fontWeight: 500, // Subí un poco el peso para asegurar lectura
+            color: '#F8FAFC',
             fontSize: { xs: '1.1rem', md: '1.4rem' },
             lineHeight: 1.6,
+            textShadow: '0px 2px 4px rgba(0,0,0,0.5)', // Añadida sombra sutil al subtítulo
             opacity: 0, 
             animation: `${fadeInUp} 1s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards`,
           }}
@@ -121,7 +124,7 @@ const Home = () => {
             component={RouterLink} 
             to="/quienes-somos"
             sx={{ 
-              borderColor: 'rgba(255,255,255,0.7)', 
+              borderColor: 'rgba(255,255,255,0.9)', 
               color: '#fff',
               fontSize: '1.2rem',
               padding: '12px 35px',
@@ -132,7 +135,7 @@ const Home = () => {
               transition: 'all 0.3s ease',
               '&:hover': { 
                 borderColor: '#00BFA5', 
-                backgroundColor: 'rgba(0, 191, 165, 0.15)',
+                backgroundColor: 'rgba(0, 191, 165, 0.2)', // Ajuste ligero al hover
                 transform: 'translateY(-3px)',
               }
             }}

@@ -1,11 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Box, Typography, Grid, Card, CardContent, Container, TextField, Button, IconButton } from '@mui/material';
 import { keyframes } from '@mui/system';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
 import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
-import SendIcon from '@mui/icons-material/Send';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
@@ -24,6 +22,34 @@ const colors = {
 };
 
 const Contacto = () => {
+  // Estado para almacenar los datos del formulario (sin teléfono)
+  const [formData, setFormData] = useState({
+    nombre: '',
+    correo: '',
+    idioma: '',
+    mensaje: ''
+  });
+
+  // Manejador de cambios en los inputs
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  // Función para enviar por WhatsApp
+  const handleEnviarWhatsApp = () => {
+    const numeroWhatsApp = "529611234567"; // Reemplaza con tu número real sin el +
+    
+    // Formatear el mensaje con los datos del estado
+    const textoMensaje = `¡Hola! Me gustaría recibir más información.%0A%0A*Nombre:* ${formData.nombre}%0A*Correo:* ${formData.correo}%0A*Idioma de interés:* ${formData.idioma}%0A*Mensaje:* ${formData.mensaje}`;
+    
+    // Redirigir a WhatsApp
+    const url = `https://wa.me/${numeroWhatsApp}?text=${textoMensaje}`;
+    window.open(url, '_blank');
+  };
+
   return (
     <Box 
       sx={{ 
@@ -42,11 +68,12 @@ const Contacto = () => {
         overflow: 'hidden'
       }}
     >
+      {/* Capa superpuesta ajustada como en Home */}
       <Box 
         sx={{
           position: 'absolute',
           top: 0, left: 0, right: 0, bottom: 0,
-          background: 'linear-gradient(135deg, rgba(17, 34, 78, 0.9) 0%, rgba(0, 191, 165, 0.4) 100%)',
+          background: 'linear-gradient(135deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.1) 100%)',
           zIndex: 1
         }} 
       />
@@ -70,19 +97,30 @@ const Contacto = () => {
               mb: 1,
               fontSize: { xs: '2.8rem', md: '4rem' },
               letterSpacing: '-1.5px',
-              textShadow: '0px 4px 10px rgba(0,0,0,0.3)'
+              textShadow: '0px 4px 15px rgba(0,0,0,0.5)' // Sombra marcada para contraste
             }}
           >
             Ponte en <span style={{ color: colors.aqua }}>Contacto</span>
           </Typography>
           <Box sx={{ width: '100px', height: '6px', bgcolor: colors.aqua, mx: 'auto', borderRadius: '4px', mb: 3 }} />
-          <Typography variant="body1" sx={{ color: '#E2E8F0', maxWidth: '700px', mx: 'auto', fontSize: '1.2rem', lineHeight: 1.8 }}>
-            Estamos aquí para ayudarte a dar el siguiente paso. Escríbenos, llámanos o visítanos; nuestro equipo está listo para resolver todas tus dudas.
+          <Typography 
+            variant="body1" 
+            sx={{ 
+              color: '#F8FAFC', 
+              maxWidth: '700px', 
+              mx: 'auto', 
+              fontSize: '1.2rem', 
+              lineHeight: 1.8,
+              textShadow: '0px 2px 4px rgba(0,0,0,0.5)' // Añadida sombra al subtítulo
+            }}
+          >
+            Estamos aquí para ayudarte a dar el siguiente paso. Escríbenos o llámanos; nuestro equipo está listo para resolver todas tus dudas.
           </Typography>
         </Box>
 
         <Grid container spacing={6} alignItems="stretch">
           
+          {/* Tarjeta de Información de Contacto */}
           <Grid item xs={12} md={5}>
             <Card 
               elevation={10}
@@ -106,20 +144,7 @@ const Contacto = () => {
 
                 <Box sx={{ display: 'flex', flexDirection: 'column', gap: 4, flexGrow: 1 }}>
                   
-                  {/* Item: Dirección */}
-                  <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 2 }}>
-                    <Box sx={{ bgcolor: 'rgba(17, 34, 78, 0.05)', p: 1.5, borderRadius: '12px', display: 'flex' }}>
-                      <LocationOnIcon sx={{ color: colors.azul, fontSize: 28 }} />
-                    </Box>
-                    <Box>
-                      <Typography variant="subtitle1" sx={{ fontWeight: 700, color: colors.azul }}>Visítanos</Typography>
-                      <Typography variant="body2" sx={{ color: '#475569', mt: 0.5, lineHeight: 1.6 }}>
-                        Av. Principal #123, Col. Centro<br />Tuxtla Gutiérrez, Chiapas.
-                      </Typography>
-                    </Box>
-                  </Box>
-
-                  {/* Item: Teléfono */}
+                  {/* Item: Teléfono (de la empresa) */}
                   <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 2 }}>
                     <Box sx={{ bgcolor: 'rgba(17, 34, 78, 0.05)', p: 1.5, borderRadius: '12px', display: 'flex' }}>
                       <PhoneIcon sx={{ color: colors.azul, fontSize: 28 }} />
@@ -167,7 +192,10 @@ const Contacto = () => {
                   <IconButton sx={{ bgcolor: colors.azul, color: colors.blanco, '&:hover': { bgcolor: colors.aqua } }}>
                     <InstagramIcon />
                   </IconButton>
-                  <IconButton sx={{ bgcolor: '#25D366', color: colors.blanco, '&:hover': { bgcolor: '#1EBE5D' } }}>
+                  <IconButton 
+                    onClick={handleEnviarWhatsApp}
+                    sx={{ bgcolor: '#25D366', color: colors.blanco, '&:hover': { bgcolor: '#1EBE5D' } }}
+                  >
                     <WhatsAppIcon />
                   </IconButton>
                 </Box>
@@ -176,6 +204,7 @@ const Contacto = () => {
             </Card>
           </Grid>
 
+          {/* Tarjeta del Formulario */}
           <Grid item xs={12} md={7}>
             <Card 
               elevation={10}
@@ -196,34 +225,29 @@ const Contacto = () => {
                   Envíanos un Mensaje
                 </Typography>
                 <Typography variant="body2" sx={{ color: '#64748B', mb: 4 }}>
-                  Completa el formulario y un asesor se pondrá en contacto contigo lo más pronto posible.
+                  Completa el formulario y te enviaremos la información directamente por WhatsApp.
                 </Typography>
 
                 <Box component="form" noValidate autoComplete="off" sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
-                  <Grid container spacing={3}>
-                    <Grid item xs={12} sm={6}>
-                      <TextField 
-                        fullWidth 
-                        label="Nombre Completo" 
-                        variant="outlined" 
-                        color="primary"
-                        sx={{ '& .MuiOutlinedInput-root': { borderRadius: '12px' } }}
-                      />
-                    </Grid>
-                    <Grid item xs={12} sm={6}>
-                      <TextField 
-                        fullWidth 
-                        label="Teléfono / Celular" 
-                        variant="outlined" 
-                        sx={{ '& .MuiOutlinedInput-root': { borderRadius: '12px' } }}
-                      />
-                    </Grid>
-                  </Grid>
+                  
+                  <TextField 
+                    fullWidth 
+                    label="Nombre Completo" 
+                    name="nombre"
+                    value={formData.nombre}
+                    onChange={handleChange}
+                    variant="outlined" 
+                    color="primary"
+                    sx={{ '& .MuiOutlinedInput-root': { borderRadius: '12px' } }}
+                  />
 
                   <TextField 
                     fullWidth 
                     label="Correo Electrónico" 
+                    name="correo"
                     type="email"
+                    value={formData.correo}
+                    onChange={handleChange}
                     variant="outlined" 
                     sx={{ '& .MuiOutlinedInput-root': { borderRadius: '12px' } }}
                   />
@@ -231,6 +255,9 @@ const Contacto = () => {
                   <TextField 
                     fullWidth 
                     label="¿En qué idioma o curso estás interesado?" 
+                    name="idioma"
+                    value={formData.idioma}
+                    onChange={handleChange}
                     variant="outlined" 
                     sx={{ '& .MuiOutlinedInput-root': { borderRadius: '12px' } }}
                   />
@@ -238,6 +265,9 @@ const Contacto = () => {
                   <TextField 
                     fullWidth 
                     label="Mensaje o dudas adicionales" 
+                    name="mensaje"
+                    value={formData.mensaje}
+                    onChange={handleChange}
                     multiline
                     rows={4}
                     variant="outlined" 
@@ -247,26 +277,27 @@ const Contacto = () => {
                   <Button 
                     variant="contained" 
                     size="large"
-                    endIcon={<SendIcon />}
+                    onClick={handleEnviarWhatsApp}
+                    endIcon={<WhatsAppIcon />}
                     sx={{ 
                       mt: 2,
-                      bgcolor: colors.aqua, 
+                      bgcolor: '#25D366', 
                       color: colors.blanco,
                       borderRadius: '30px',
                       py: 1.5,
                       textTransform: 'none',
                       fontWeight: 800,
                       fontSize: '1.1rem',
-                      boxShadow: '0 8px 20px rgba(0, 191, 165, 0.3)',
+                      boxShadow: '0 8px 20px rgba(37, 211, 102, 0.3)',
                       '&:hover': { 
-                        bgcolor: '#009688', 
+                        bgcolor: '#1EBE5D', 
                         transform: 'translateY(-2px)',
-                        boxShadow: '0 10px 25px rgba(0, 191, 165, 0.4)',
+                        boxShadow: '0 10px 25px rgba(37, 211, 102, 0.4)',
                       },
                       transition: 'all 0.3s ease'
                     }}
                   >
-                    Enviar Mensaje
+                    Enviar por WhatsApp
                   </Button>
                 </Box>
               </CardContent>

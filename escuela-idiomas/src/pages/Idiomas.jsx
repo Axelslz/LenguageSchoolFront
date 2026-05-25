@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Box, Container, Typography, Card, CardContent, Button } from '@mui/material';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import { keyframes } from '@mui/system';
 import fondoInicio from '../assets/fondo-inicio.png';
 
@@ -15,48 +16,61 @@ const colors = {
   blanco: '#FFFFFF',
 };
 
+// Actualización de datos con la nueva información, subtítulos, botones y enlaces
 const idiomasData = [
   {
     id: 1,
-    nombre: 'Español',
-    descripcion: 'Perfecciona tu gramática, ortografía y redacción. Ideal para profesionales y extranjeros.',
-    detalles: 'Inmersión cultural, modismos y español de negocios.',
-    imagen: 'https://res.cloudinary.com/dqozuofy6/image/upload/v1778109244/bellas_artes_ff2rkr.png' 
+    nombre: 'Francés',
+    subtitulo: '¡Parlez-vous français? El idioma de la cultura, los negocios y tu próximo gran paso.',
+    descripcion: 'En LingUp te enseñamos desde tus primeras palabras hasta lograr una comunicación natural y precisa. A través de nuestra plataforma completamente interactiva, desarrollarás habilidades sólidas para expresarte con fluidez, elegancia y exactitud en cualquier entorno. Domina el lenguaje de la diplomacia, el arte, y destaca profesionalmente con un programa diseñado para llevarte al éxito.',
+    textoBoton: 'Inicia tu viaje hoy',
+    link: 'https://wa.me/1234567890?text=Quiero%20inscribirme%20en%20Francés',
+    imagen: 'https://res.cloudinary.com/dqozuofy6/image/upload/v1778109243/frances_mxapi6.png'
   },
   {
     id: 2,
-    nombre: 'Inglés',
-    descripcion: 'Enfocado en negocios y comunicación internacional. Niveles desde básico hasta avanzado.',
-    detalles: 'Clases dinámicas, preparación para certificaciones y club de conversación.',
-    imagen: 'https://res.cloudinary.com/dqozuofy6/image/upload/v1778109244/ingles_yojym2.png'
+    nombre: 'Italiano',
+    subtitulo: 'Habla, piensa y comunícate en italiano con total seguridad.',
+    descripcion: 'En LingUp con nuestra plataforma completamente interactiva, desarrollarás las habilidades necesarias para dominar el italiano a un nivel avanzado y profesional. Vivirás un aprendizaje dinámico. ¡El control del idioma está a tu alcance!',
+    textoBoton: 'Inicia tu camino hoy',
+    link: 'https://wa.me/1234567890?text=Quiero%20inscribirme%20en%20Italiano',
+    imagen: 'https://res.cloudinary.com/dqozuofy6/image/upload/v1778109244/bellas_artes_ff2rkr.png' // Mantuvimos esta imagen temporalmente
   },
   {
     id: 3,
-    nombre: 'Alemán',
-    descripcion: 'Abre puertas laborales en Europa y la industria tecnológica. Cursos diseñados para el dominio técnico.',
-    detalles: 'Metodología estructurada para un aprendizaje rápido y sólido.',
-    imagen: 'https://res.cloudinary.com/dqozuofy6/image/upload/v1778109244/aleman_sxslts.png'
+    nombre: 'Japonés',
+    subtitulo: 'Iníciate en el Fascinante Mundo del Japonés.',
+    descripcion: '¿Te fascina la cultura, el anime o la tecnología nipona? El japonés es mucho más que un idioma; es una puerta a una cultura milenaria. En LingUp, con nuestra introducción exclusiva al japonés, plataforma 100% interactiva. Aprende las bases, los primeros trazos y sonidos de un idioma fascinante que te abrirá un mundo de posibilidades. ¡Tu primer paso hacia el país del sol naciente comienza aquí!',
+    textoBoton: 'Quiero conocer más',
+    link: 'https://wa.me/1234567890?text=Quiero%20inscribirme%20en%20Japonés',
+    imagen: 'https://res.cloudinary.com/dqozuofy6/image/upload/v1778109244/japones_xsyx0z.png'
   },
   {
     id: 4,
-    nombre: 'Francés',
-    descripcion: 'Domina la lengua de la diplomacia. Ideal para estudiantes de intercambio y apasionados del arte.',
-    detalles: 'Enfoque en gramática y fonética precisa con profesores nativos.',
-    imagen: 'https://res.cloudinary.com/dqozuofy6/image/upload/v1778109243/frances_mxapi6.png'
+    nombre: 'Inglés Americano',
+    subtitulo: 'El lenguaje de las grandes oportunidades.',
+    descripcion: '¿Te imaginas negociar con confianza, trabajar en cualquier lugar o disfrutar tus vacaciones como un local? Dominar el inglés a un nivel avanzado ya no es un extra, es tu ventaja competitiva. En LingUp, transformamos tu aprendizaje con una plataforma 100% interactiva diseñada para que domines el inglés americano de forma real, dinámica y profesional. No solo aprendas el idioma, úsalo para transformar tu vida y alcanza el dominio necesario para destacar en cualquier escenario global.',
+    textoBoton: 'Domina el inglés hoy',
+    link: 'https://wa.me/1234567890?text=Quiero%20inscribirme%20en%20Inglés',
+    imagen: 'https://res.cloudinary.com/dqozuofy6/image/upload/v1778109244/ingles_yojym2.png'
   },
   {
     id: 5,
     nombre: 'Chino',
-    descripcion: 'Conecta con el gigante asiático. Aprende mandarín desde las bases hasta la fluidez comercial.',
-    detalles: 'Caligrafía, tonos y preparación para el examen HSK.',
+    subtitulo: '你好! (Nǐ hǎo!) Conéctate con el mundo sin barreras.',
+    descripcion: 'El mandarín es el idioma clave para los negocios del siglo XXI. En LingUp, te acompañamos desde tus primeros trazos hasta un dominio elemental sólido. Gracias a nuestra plataforma totalmente interactiva aprenderás de manera ágil y efectiva, para que domines los fundamentos con precisión.',
+    textoBoton: 'Comienza tu formación',
+    link: 'https://wa.me/1234567890?text=Quiero%20inscribirme%20en%20Chino',
     imagen: 'https://res.cloudinary.com/dqozuofy6/image/upload/v1778109244/china_gwtm5f.png'
   },
   {
     id: 6,
-    nombre: 'Japonés',
-    descripcion: 'Sumérgete en la cultura nipona, desde el anime hasta la etiqueta de negocios formal.',
-    detalles: 'Dominio de Hiragana, Katakana, Kanji y conversación fluida.',
-    imagen: 'https://res.cloudinary.com/dqozuofy6/image/upload/v1778109244/japones_xsyx0z.png'
+    nombre: 'Alemán',
+    subtitulo: 'Guten Tag! Entdecken Sie eine neue Welt',
+    descripcion: 'Con nuestro curso introductorio te llevamos de la mano desde el inicio hasta un nivel intermedio, en dónde sucede la magia y se convierte en una herramienta real. En LingUp nuestra plataforma 100% interactiva facilita tu progreso, llevándote de los conceptos básicos a una comunicación sólida y real.',
+    textoBoton: 'Inscríbete ahora',
+    link: 'https://wa.me/1234567890?text=Quiero%20inscribirme%20en%20Alemán',
+    imagen: 'https://res.cloudinary.com/dqozuofy6/image/upload/v1778109244/aleman_sxslts.png'
   }
 ];
 
@@ -69,7 +83,7 @@ const FlipCard = ({ idioma, index }) => {
       sx={{
         perspective: '1000px',
         cursor: 'pointer',
-        height: '400px',
+        height: '420px', 
         opacity: 0,
         animation: `${fadeInUp} 0.8s cubic-bezier(0.4, 0, 0.2, 1) ${0.3 + (index * 0.1)}s forwards`,
         '&:hover': { transform: 'scale(1.03)' },
@@ -116,6 +130,7 @@ const FlipCard = ({ idioma, index }) => {
           </CardContent>
         </Card>
 
+        {/* CARA TRASERA */}
         <Card
           sx={{
             position: 'absolute',
@@ -130,41 +145,59 @@ const FlipCard = ({ idioma, index }) => {
             bgcolor: colors.blanco,
             border: `2px solid ${colors.aqua}`,
             p: 3,
-            boxShadow: '0 10px 30px rgba(0, 191, 165, 0.2)'
+            boxShadow: '0 10px 30px rgba(0, 191, 165, 0.2)',
           }}
         >
-          <Box>
-            <Typography variant="h6" sx={{ color: colors.azul, fontWeight: 800, mb: 1.5, textAlign: 'center' }}>
-              {idioma.nombre} Profesional
+          {/* Contenedor de texto con scroll oculto para que no se desborde la info */}
+          <Box 
+            sx={{ 
+              overflowY: 'auto', 
+              flexGrow: 1, 
+              mb: 2,
+              pr: 1,
+              '&::-webkit-scrollbar': { width: '4px' },
+              '&::-webkit-scrollbar-track': { background: 'transparent' },
+              '&::-webkit-scrollbar-thumb': { background: 'rgba(0, 191, 165, 0.3)', borderRadius: '10px' },
+            }}
+          >
+            <Typography variant="h6" sx={{ color: colors.azul, fontWeight: 800, mb: 1, textAlign: 'center' }}>
+              {idioma.nombre}
             </Typography>
-            <Typography variant="body2" sx={{ textAlign: 'center', mb: 1.5, lineHeight: 1.5, color: '#4A5568' }}>
+            <Typography variant="body2" sx={{ textAlign: 'center', color: colors.aqua, fontWeight: 700, mb: 1.5, fontSize: '0.9rem', lineHeight: 1.3 }}>
+              {idioma.subtitulo}
+            </Typography>
+            <Typography variant="body2" sx={{ textAlign: 'justify', lineHeight: 1.6, color: '#4A5568', fontSize: '0.85rem' }}>
               {idioma.descripcion}
-            </Typography>
-            <Typography variant="body2" sx={{ textAlign: 'center', fontStyle: 'italic', color: '#718096', fontWeight: 500, fontSize: '0.85rem' }}>
-              {idioma.detalles}
             </Typography>
           </Box>
           
-          <Box sx={{ width: '100%', mt: 2 }}>
-            <Typography variant="caption" sx={{ display: 'block', textAlign: 'center', color: '#718096', mb: 0.5 }}>
-              ¿Ya estás inscrito?
-            </Typography>
-            
+          {/* Botón de Acción dinámico */}
+          <Box sx={{ width: '100%', pt: 1, borderTop: '1px solid #edf2f7' }}>
             <Button
               fullWidth
+              variant="contained"
+              endIcon={<OpenInNewIcon fontSize="small" />}
               sx={{
-                color: colors.azul,
+                bgcolor: colors.azul,
+                color: colors.blanco,
                 textTransform: 'none',
                 fontWeight: 'bold',
-                borderRadius: '20px',
-                '&:hover': { backgroundColor: 'rgba(17, 34, 78, 0.05)' }
+                borderRadius: '8px',
+                py: 1,
+                fontSize: '0.9rem',
+                boxShadow: '0 4px 10px rgba(17, 34, 78, 0.2)',
+                '&:hover': { 
+                  bgcolor: '#0a1430',
+                  transform: 'translateY(-2px)' 
+                },
+                transition: 'all 0.2s ease'
               }}
               onClick={(e) => {
-                e.stopPropagation();
-                console.log("Navegar a Iniciar Sesión");
+                e.stopPropagation(); // Evita que la tarjeta gire al hacer clic en el botón
+                window.open(idioma.link, '_blank'); // Redirige al link en nueva pestaña
               }}
             >
-              Inicia Sesión
+              {idioma.textoBoton}
             </Button>
           </Box>
         </Card>
@@ -190,11 +223,12 @@ const Idiomas = () => {
         py: { xs: 8, md: 10 } 
       }}
     >
+      {/* Capa superpuesta ajustada como en Home */}
       <Box 
         sx={{
           position: 'absolute',
           top: 0, left: 0, right: 0, bottom: 0,
-          background: 'linear-gradient(135deg, rgba(17, 34, 78, 0.9) 0%, rgba(0, 191, 165, 0.4) 100%)',
+          background: 'linear-gradient(135deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.1) 100%)',
           zIndex: 1
         }} 
       />
@@ -215,13 +249,23 @@ const Idiomas = () => {
               fontWeight: 900, 
               color: colors.blanco, 
               mb: 1,
-              textShadow: '0px 4px 10px rgba(0,0,0,0.3)' 
+              textShadow: '0px 4px 15px rgba(0,0,0,0.5)' // Sombra ajustada
             }}
           >
             Nuestros <span style={{ color: colors.aqua }}>Idiomas</span>
           </Typography>
           <Box sx={{ width: '100px', height: '5px', bgcolor: colors.aqua, mx: 'auto', borderRadius: '3px', mb: 3 }} />
-          <Typography variant="body1" sx={{ color: '#E2E8F0', maxWidth: '700px', mx: 'auto', fontSize: '1.15rem', lineHeight: 1.8 }}>
+          <Typography 
+            variant="body1" 
+            sx={{ 
+              color: '#F8FAFC', // Color ajustado para mejor contraste
+              maxWidth: '700px', 
+              mx: 'auto', 
+              fontSize: '1.15rem', 
+              lineHeight: 1.8,
+              textShadow: '0px 2px 4px rgba(0,0,0,0.5)' // Sombra para legibilidad
+            }}
+          >
             Elige el idioma que impulsará tu carrera. Haz clic en cada tarjeta para conocer los detalles de nuestros cursos profesionales.
           </Typography>
         </Box>
@@ -254,10 +298,28 @@ const Idiomas = () => {
             animation: `${fadeInUp} 1s cubic-bezier(0.4, 0, 0.2, 1) 0.8s forwards`
           }}
         >
-          <Typography variant="h5" sx={{ color: colors.blanco, fontWeight: 700, mb: 2, maxWidth: '800px' }}>
+          <Typography 
+            variant="h5" 
+            sx={{ 
+              color: colors.blanco, 
+              fontWeight: 700, 
+              mb: 2, 
+              maxWidth: '800px',
+              textShadow: '0px 2px 4px rgba(0,0,0,0.5)' // Sombra para legibilidad
+            }}
+          >
             ¿Quieres saber más información detallada?
           </Typography>
-          <Typography variant="body1" sx={{ color: '#E2E8F0', mb: 4, maxWidth: '600px', fontSize: '1.1rem' }}>
+          <Typography 
+            variant="body1" 
+            sx={{ 
+              color: '#F8FAFC', // Color ajustado
+              mb: 4, 
+              maxWidth: '600px', 
+              fontSize: '1.1rem',
+              textShadow: '0px 2px 4px rgba(0,0,0,0.5)' // Sombra para legibilidad
+            }}
+          >
             Haz tu registro gratuito y nosotros nos comunicamos contigo vía WhatsApp para resolver todas tus dudas.
           </Typography>
           

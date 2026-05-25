@@ -34,11 +34,12 @@ const QuienesSomos = () => {
         overflow: 'hidden'
       }}
     >
+      {/* Capa superpuesta ajustada como en Home */}
       <Box 
         sx={{
           position: 'absolute',
           top: 0, left: 0, right: 0, bottom: 0,
-          background: 'linear-gradient(135deg, rgba(17, 34, 78, 0.9) 0%, rgba(0, 191, 165, 0.4) 100%)',
+          background: 'linear-gradient(135deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.1) 100%)',
           zIndex: 1
         }} 
       />
@@ -64,7 +65,7 @@ const QuienesSomos = () => {
                   mb: 1,
                   fontSize: { xs: '2.8rem', md: '4rem' },
                   letterSpacing: '-1.5px',
-                  textShadow: '0px 4px 10px rgba(0,0,0,0.3)',
+                  textShadow: '0px 4px 15px rgba(0,0,0,0.5)', // Sombra ajustada
                   animation: `${fadeInUp} 1s cubic-bezier(0.4, 0, 0.2, 1) forwards`
                 }}
               >
@@ -86,12 +87,13 @@ const QuienesSomos = () => {
               <Typography 
                 variant="body1" 
                 sx={{ 
-                  color: '#F1F5F9', 
+                  color: '#F8FAFC', // Color ajustado para mejor contraste
                   mb: 3, 
                   fontSize: '1.25rem', 
                   lineHeight: 1.8,
                   fontWeight: 400,
                   textAlign: 'justify',
+                  textShadow: '0px 2px 4px rgba(0,0,0,0.5)', // Sombra para legibilidad
                   opacity: 0,
                   animation: `${fadeInUp} 1s cubic-bezier(0.4, 0, 0.2, 1) 0.4s forwards`
                 }}
@@ -102,11 +104,12 @@ const QuienesSomos = () => {
               <Typography 
                 variant="body1" 
                 sx={{ 
-                  color: '#E0E0E0', 
+                  color: '#F8FAFC', // Color ajustado
                   fontSize: '1.2rem', 
                   lineHeight: 1.8,
                   fontWeight: 400,
                   textAlign: 'justify',
+                  textShadow: '0px 2px 4px rgba(0,0,0,0.5)', // Sombra para legibilidad
                   opacity: 0,
                   animation: `${fadeInUp} 1s cubic-bezier(0.4, 0, 0.2, 1) 0.5s forwards`
                 }}
