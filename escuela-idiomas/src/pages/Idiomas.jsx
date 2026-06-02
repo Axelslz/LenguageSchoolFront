@@ -16,7 +16,7 @@ const colors = {
   blanco: '#FFFFFF',
 };
 
-// Actualización de datos con la nueva información, subtítulos, botones y enlaces
+
 const idiomasData = [
   {
     id: 1,
@@ -34,7 +34,7 @@ const idiomasData = [
     descripcion: 'En LingUp con nuestra plataforma completamente interactiva, desarrollarás las habilidades necesarias para dominar el italiano a un nivel avanzado y profesional. Vivirás un aprendizaje dinámico. ¡El control del idioma está a tu alcance!',
     textoBoton: 'Inicia tu camino hoy',
     link: 'https://wa.me/1234567890?text=Quiero%20inscribirme%20en%20Italiano',
-    imagen: 'https://res.cloudinary.com/dqozuofy6/image/upload/v1778109244/bellas_artes_ff2rkr.png' // Mantuvimos esta imagen temporalmente
+    imagen: 'https://res.cloudinary.com/dqozuofy6/image/upload/v1780105488/coliseo_roma_hjeejw.png' // Mantuvimos esta imagen temporalmente
   },
   {
     id: 3,
@@ -52,7 +52,7 @@ const idiomasData = [
     descripcion: '¿Te imaginas negociar con confianza, trabajar en cualquier lugar o disfrutar tus vacaciones como un local? Dominar el inglés a un nivel avanzado ya no es un extra, es tu ventaja competitiva. En LingUp, transformamos tu aprendizaje con una plataforma 100% interactiva diseñada para que domines el inglés americano de forma real, dinámica y profesional. No solo aprendas el idioma, úsalo para transformar tu vida y alcanza el dominio necesario para destacar en cualquier escenario global.',
     textoBoton: 'Domina el inglés hoy',
     link: 'https://wa.me/1234567890?text=Quiero%20inscribirme%20en%20Inglés',
-    imagen: 'https://res.cloudinary.com/dqozuofy6/image/upload/v1778109244/ingles_yojym2.png'
+    imagen: 'https://res.cloudinary.com/dqozuofy6/image/upload/v1780105785/puente_estadosunidos_xl8xvl.jpg'
   },
   {
     id: 5,
@@ -266,7 +266,7 @@ const Idiomas = () => {
               textShadow: '0px 2px 4px rgba(0,0,0,0.5)' // Sombra para legibilidad
             }}
           >
-            Elige el idioma que impulsará tu carrera. Haz clic en cada tarjeta para conocer los detalles de nuestros cursos profesionales.
+            Elige el idioma que impulsará tu carrera. Haz click en cada tarjeta para conocer los detalles de nuestros cursos profesionales.
           </Typography>
         </Box>
 
@@ -308,7 +308,7 @@ const Idiomas = () => {
               textShadow: '0px 2px 4px rgba(0,0,0,0.5)' // Sombra para legibilidad
             }}
           >
-            ¿Quieres saber más información detallada?
+            ¡Incribete hoy! ¿Que esperas para expandir tus horizontes?
           </Typography>
           <Typography 
             variant="body1" 

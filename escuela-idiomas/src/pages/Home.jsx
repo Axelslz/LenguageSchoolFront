@@ -22,10 +22,13 @@ const Home = () => {
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
-        minHeight: { xs: 'calc(100vh - 56px)', sm: 'calc(100vh - 64px)' },
+        // Cambiamos el minHeight a 100vh para que ocupe toda la pantalla
+        minHeight: '100vh', 
         width: '100%', 
         margin: 0,
-        padding: 0,
+        // Agregamos paddingTop para compensar el Navbar fijo
+        pt: { xs: 10, sm: 12 },
+        pb: 4,
         display: 'flex',
         alignItems: 'center',
         position: 'relative',
@@ -33,8 +36,7 @@ const Home = () => {
       }}
     >
 
-      {/* Capa superpuesta ajustada: mucho más transparente para dejar brillar la imagen, 
-          pero con el oscurecimiento mínimo necesario para que el texto blanco sea legible */}
+      {/* Capa superpuesta ajustada */}
       <Box 
         sx={{
           position: 'absolute',
@@ -62,7 +64,7 @@ const Home = () => {
             mb: 3,
             color: '#FFFFFF',
             fontSize: { xs: '2.8rem', md: '4.5rem' },
-            textShadow: '0px 4px 15px rgba(0,0,0,0.5)', // Sombra un poco más marcada para contraste
+            textShadow: '0px 4px 15px rgba(0,0,0,0.5)', 
             animation: `${fadeInUp} 1s cubic-bezier(0.4, 0, 0.2, 1) forwards`,
           }}
         >
@@ -73,11 +75,11 @@ const Home = () => {
           variant="h6" 
           sx={{ 
             mb: 6, 
-            fontWeight: 500, // Subí un poco el peso para asegurar lectura
+            fontWeight: 500, 
             color: '#F8FAFC',
             fontSize: { xs: '1.1rem', md: '1.4rem' },
             lineHeight: 1.6,
-            textShadow: '0px 2px 4px rgba(0,0,0,0.5)', // Añadida sombra sutil al subtítulo
+            textShadow: '0px 2px 4px rgba(0,0,0,0.5)', 
             opacity: 0, 
             animation: `${fadeInUp} 1s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards`,
           }}
@@ -135,7 +137,7 @@ const Home = () => {
               transition: 'all 0.3s ease',
               '&:hover': { 
                 borderColor: '#00BFA5', 
-                backgroundColor: 'rgba(0, 191, 165, 0.2)', // Ajuste ligero al hover
+                backgroundColor: 'rgba(0, 191, 165, 0.2)', 
                 transform: 'translateY(-3px)',
               }
             }}

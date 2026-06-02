@@ -98,7 +98,7 @@ const QuienesSomos = () => {
                   animation: `${fadeInUp} 1s cubic-bezier(0.4, 0, 0.2, 1) 0.4s forwards`
                 }}
               >
-                <strong style={{ color: colors.blanco, fontWeight: 700 }}>Bienvenido a Ling Up</strong>, el espacio donde tu voz encuentra un nuevo idioma. Transformamos el aprendizaje de idiomas en una herramienta de alto rendimiento. Somos un centro diseñado para cerrar la brecha entre la teoría y el dominio profesional.
+                <strong style={{ color: colors.blanco, fontWeight: 700 }}>Bienvenido a LingUp</strong>, el espacio donde tu voz encuentra un nuevo idioma. Transformamos el aprendizaje de idiomas en una herramienta de alto rendimiento. Somos un centro diseñado para cerrar la brecha entre la teoría y el dominio profesional.
               </Typography>
               
               <Typography 

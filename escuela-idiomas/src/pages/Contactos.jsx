@@ -178,7 +178,7 @@ const Contacto = () => {
                     <Box>
                       <Typography variant="subtitle1" sx={{ fontWeight: 700, color: colors.azul }}>Horario de Atención</Typography>
                       <Typography variant="body2" sx={{ color: '#475569', mt: 0.5 }}>
-                        Lunes a Viernes: 8:00 AM - 8:00 PM<br />Sábados: 9:00 AM - 2:00 PM
+                        Lunes a Viernes: 9:00 AM - 6:00 PM<br />Sábados: 9:00 AM - 2:00 PM
                       </Typography>
                     </Box>
                   </Box>
