@@ -61,8 +61,8 @@ const Instituciones = () => {
         }}>
           <Box 
             component="img"
-            src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
-            alt="Campus universitario internacional"
+            src="https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+            alt="Grupo de mujeres estudiantes universitarias"
             sx={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }}
           />
         </Box>
@@ -78,7 +78,7 @@ const Instituciones = () => {
               El éxito de una institución educativa se mide por el impacto de sus egresados en el mundo real. 
             </Typography>
             <Typography variant="body1" sx={{ color: colores.textoOscuro, fontSize: '1.15rem', lineHeight: 1.8, mb: 3 }}>
-              Hoy en día, el dominio de un second o tercer idioma ya no es un plus; es el <strong>estándar mínimo</strong> exigido por el mercado laboral y científico.
+              Hoy en día, el dominio de un segundo o tercer idioma ya no es un plus; es el <strong>estándar mínimo</strong> exigido por el mercado laboral y científico.
             </Typography>
             <Typography variant="body1" sx={{ color: colores.textoOscuro, fontSize: '1.15rem', lineHeight: 1.8, p: 3, bgcolor: 'rgba(0, 191, 165, 0.08)', borderRadius: '12px', borderLeft: `4px solid ${colores.aqua}` }}>
               Al integrar LingUp en la oferta de tu preparatoria o universidad, no solo sumas un programa de idiomas: adquieres un aliado estratégico que impulsa la excelencia académica y la proyección profesional.

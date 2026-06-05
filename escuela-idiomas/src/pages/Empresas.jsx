@@ -41,11 +41,12 @@ const Empresas = () => {
       <Box 
   sx={{
     position: 'relative',
-    backgroundImage: 'url("https://res.cloudinary.com/dvjjpeyzh/image/upload/v1780609341/32x13_Related_gen44d.jpg")',
+    // Imagen de una reunión corporativa formal y elegante
+    backgroundImage: 'url("https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80")',
     backgroundSize: 'cover',
-    backgroundPosition: 'center 15%', // Ancla la imagen un poco más abajo para centrar las caras
-    minHeight: { xs: '45vh', md: '55vh' }, // Altura reducida para evitar que la imagen se recorte en exceso
-    mt: { xs: 8, md: 11 }, // ¡El ajuste clave! Empuja la imagen hacia abajo para que el Navbar no la tape
+    backgroundPosition: 'center', // Centrado estándar para imágenes corporativas
+    minHeight: { xs: '45vh', md: '55vh' }, 
+    mt: { xs: 8, md: 11 }, 
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -54,7 +55,7 @@ const Empresas = () => {
     pb: { xs: 6, sm: 8 },
     mb: 10,
     overflow: 'hidden',
-    borderRadius: { xs: 0, lg: '0 0 24px 24px' } // Opcional: un toque elegante en los bordes inferiores
+    borderRadius: { xs: 0, lg: '0 0 24px 24px' } 
   }}
 >
         <Box 
