@@ -8,12 +8,11 @@ import { Link as RouterLink, useLocation } from 'react-router-dom';
 
 const LOGO_URL = 'https://res.cloudinary.com/dqozuofy6/image/upload/v1778108688/LOGO_SUPERIOR_V2_w5yige.png'; 
 
-// Aquí agregamos las nuevas pestañas
 const navItems = [
   { label: 'Inicio', path: '/' },
   { label: 'Quiénes Somos', path: '/quienes-somos' },
   { label: 'Idiomas', path: '/idiomas' },
-  { label: 'Instituciones', path: '/instituciones' },
+  { label: 'Instituciones Educativas', path: '/instituciones' },
   { label: 'Empresas', path: '/empresas' },
   { label: 'Contactos', path: '/contactos' }
 ];
@@ -30,7 +29,6 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation(); 
 
-  // Detecta el scroll para encoger el navbar y agregar sombra dinámicamente
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
@@ -65,11 +63,11 @@ const Navbar = () => {
                   textAlign: 'center', 
                   color: isActive ? colors.blanco : colors.azul,
                   bgcolor: isActive ? colors.aqua : 'transparent',
-                  borderRadius: '12px', // Bordes redondeados para un look más moderno
+                  borderRadius: '12px', 
                   transition: 'all 0.3s ease',
                   '&:hover': {
                     bgcolor: isActive ? colors.aqua : 'rgba(0, 191, 165, 0.1)',
-                    transform: 'translateX(5px)' // Pequeño salto a la derecha al hacer hover
+                    transform: 'translateX(5px)' 
                   }
                 }}
               >
@@ -85,7 +83,7 @@ const Navbar = () => {
   return (
     <Box sx={{ display: 'flex' }}>
       <AppBar 
-        position="fixed" // Fijado para que acompañe el scroll
+        position="fixed" 
         elevation={scrolled ? 4 : 0} 
         sx={{ 
           bgcolor: scrolled ? 'rgba(255, 255, 255, 0.95)' : 'rgba(255, 255, 255, 0.8)', 
@@ -95,16 +93,15 @@ const Navbar = () => {
           transition: 'all 0.3s ease-in-out',
         }}
       >
-        {/* Contenedor para alinear con el resto del sitio */}
         <Container maxWidth="lg"> 
           <Toolbar sx={{ py: scrolled ? 0.5 : 1.5, transition: 'padding 0.3s ease', px: { xs: 0 } }}>
-            
+             
             <IconButton
               color="inherit"
               aria-label="open drawer"
               edge="start"
               onClick={handleDrawerToggle}
-              sx={{ mr: 2, display: { sm: 'none' }, color: colors.azul }} 
+              sx={{ mr: 2, display: { md: 'none' }, color: colors.azul }} 
             >
               <MenuIcon />
             </IconButton>
@@ -132,7 +129,7 @@ const Navbar = () => {
               />
             </Box>
 
-            <Box sx={{ display: { xs: 'none', sm: 'flex' }, alignItems: 'center', gap: 1 }}>
+            <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', gap: { md: 0.5, lg: 1 } }}>
               {navItems.map((item) => {
                 const isActive = location.pathname === item.path;
                 return (
@@ -145,9 +142,9 @@ const Navbar = () => {
                       color: isActive ? colors.aqua : colors.azul, 
                       fontWeight: isActive ? 800 : 600,
                       textTransform: 'none', 
-                      fontSize: '1rem',
+                      fontSize: { md: '0.9rem', lg: '1rem' }, 
                       position: 'relative',
-                      px: 2,
+                      px: { md: 1.5, lg: 2 }, 
                       py: 1,
                       borderRadius: '8px',
                       backgroundColor: 'transparent',
@@ -155,7 +152,7 @@ const Navbar = () => {
                       '&::after': { 
                         content: '""',
                         position: 'absolute',
-                        width: isActive ? '20px' : '0%', // Animación más sutil y elegante
+                        width: isActive ? '20px' : '0%', 
                         height: '3px',
                         bottom: '4px',
                         left: '50%',
@@ -188,11 +185,11 @@ const Navbar = () => {
         onClose={handleDrawerToggle}
         ModalProps={{ keepMounted: true }}
         sx={{
-          display: { xs: 'block', sm: 'none' },
+          display: { xs: 'block', md: 'none' }, 
           '& .MuiDrawer-paper': { 
             boxSizing: 'border-box', 
             width: 280,
-            borderTopRightRadius: '16px', // Detalle premium para el menú móvil
+            borderTopRightRadius: '16px', 
             borderBottomRightRadius: '16px'
           },
         }}

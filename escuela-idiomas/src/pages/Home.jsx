@@ -22,11 +22,9 @@ const Home = () => {
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
-        // Cambiamos el minHeight a 100vh para que ocupe toda la pantalla
         minHeight: '100vh', 
         width: '100%', 
         margin: 0,
-        // Agregamos paddingTop para compensar el Navbar fijo
         pt: { xs: 10, sm: 12 },
         pb: 4,
         display: 'flex',
@@ -35,8 +33,6 @@ const Home = () => {
         overflow: 'hidden',
       }}
     >
-
-      {/* Capa superpuesta ajustada */}
       <Box 
         sx={{
           position: 'absolute',

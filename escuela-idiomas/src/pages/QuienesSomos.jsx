@@ -34,7 +34,6 @@ const QuienesSomos = () => {
         overflow: 'hidden'
       }}
     >
-      {/* Capa superpuesta ajustada como en Home */}
       <Box 
         sx={{
           position: 'absolute',
@@ -65,7 +64,7 @@ const QuienesSomos = () => {
                   mb: 1,
                   fontSize: { xs: '2.8rem', md: '4rem' },
                   letterSpacing: '-1.5px',
-                  textShadow: '0px 4px 15px rgba(0,0,0,0.5)', // Sombra ajustada
+                  textShadow: '0px 4px 15px rgba(0,0,0,0.5)', 
                   animation: `${fadeInUp} 1s cubic-bezier(0.4, 0, 0.2, 1) forwards`
                 }}
               >
@@ -87,13 +86,13 @@ const QuienesSomos = () => {
               <Typography 
                 variant="body1" 
                 sx={{ 
-                  color: '#F8FAFC', // Color ajustado para mejor contraste
+                  color: '#F8FAFC', 
                   mb: 3, 
                   fontSize: '1.25rem', 
                   lineHeight: 1.8,
                   fontWeight: 400,
                   textAlign: 'justify',
-                  textShadow: '0px 2px 4px rgba(0,0,0,0.5)', // Sombra para legibilidad
+                  textShadow: '0px 2px 4px rgba(0,0,0,0.5)', 
                   opacity: 0,
                   animation: `${fadeInUp} 1s cubic-bezier(0.4, 0, 0.2, 1) 0.4s forwards`
                 }}
@@ -104,12 +103,12 @@ const QuienesSomos = () => {
               <Typography 
                 variant="body1" 
                 sx={{ 
-                  color: '#F8FAFC', // Color ajustado
+                  color: '#F8FAFC', 
                   fontSize: '1.2rem', 
                   lineHeight: 1.8,
                   fontWeight: 400,
                   textAlign: 'justify',
-                  textShadow: '0px 2px 4px rgba(0,0,0,0.5)', // Sombra para legibilidad
+                  textShadow: '0px 2px 4px rgba(0,0,0,0.5)', 
                   opacity: 0,
                   animation: `${fadeInUp} 1s cubic-bezier(0.4, 0, 0.2, 1) 0.5s forwards`
                 }}

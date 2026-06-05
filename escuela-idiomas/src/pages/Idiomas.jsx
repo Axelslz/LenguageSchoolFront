@@ -16,7 +16,6 @@ const colors = {
   blanco: '#FFFFFF',
 };
 
-
 const idiomasData = [
   {
     id: 1,
@@ -24,7 +23,7 @@ const idiomasData = [
     subtitulo: '¡Parlez-vous français? El idioma de la cultura, los negocios y tu próximo gran paso.',
     descripcion: 'En LingUp te enseñamos desde tus primeras palabras hasta lograr una comunicación natural y precisa. A través de nuestra plataforma completamente interactiva, desarrollarás habilidades sólidas para expresarte con fluidez, elegancia y exactitud en cualquier entorno. Domina el lenguaje de la diplomacia, el arte, y destaca profesionalmente con un programa diseñado para llevarte al éxito.',
     textoBoton: 'Inicia tu viaje hoy',
-    link: 'https://wa.me/1234567890?text=Quiero%20inscribirme%20en%20Francés',
+    link: 'https://wa.me/5213121157801?text=Quiero%20inscribirme%20en%20Francés',
     imagen: 'https://res.cloudinary.com/dqozuofy6/image/upload/v1778109243/frances_mxapi6.png'
   },
   {
@@ -33,8 +32,8 @@ const idiomasData = [
     subtitulo: 'Habla, piensa y comunícate en italiano con total seguridad.',
     descripcion: 'En LingUp con nuestra plataforma completamente interactiva, desarrollarás las habilidades necesarias para dominar el italiano a un nivel avanzado y profesional. Vivirás un aprendizaje dinámico. ¡El control del idioma está a tu alcance!',
     textoBoton: 'Inicia tu camino hoy',
-    link: 'https://wa.me/1234567890?text=Quiero%20inscribirme%20en%20Italiano',
-    imagen: 'https://res.cloudinary.com/dqozuofy6/image/upload/v1780105488/coliseo_roma_hjeejw.png' // Mantuvimos esta imagen temporalmente
+    link: 'https://wa.me/5213121157801?text=Quiero%20inscribirme%20en%20Italiano',
+    imagen: 'https://res.cloudinary.com/dqozuofy6/image/upload/v1780105488/coliseo_roma_hjeejw.png'
   },
   {
     id: 3,
@@ -42,7 +41,7 @@ const idiomasData = [
     subtitulo: 'Iníciate en el Fascinante Mundo del Japonés.',
     descripcion: '¿Te fascina la cultura, el anime o la tecnología nipona? El japonés es mucho más que un idioma; es una puerta a una cultura milenaria. En LingUp, con nuestra introducción exclusiva al japonés, plataforma 100% interactiva. Aprende las bases, los primeros trazos y sonidos de un idioma fascinante que te abrirá un mundo de posibilidades. ¡Tu primer paso hacia el país del sol naciente comienza aquí!',
     textoBoton: 'Quiero conocer más',
-    link: 'https://wa.me/1234567890?text=Quiero%20inscribirme%20en%20Japonés',
+    link: 'https://wa.me/5213121157801?text=Quiero%20inscribirme%20en%20Japonés',
     imagen: 'https://res.cloudinary.com/dqozuofy6/image/upload/v1778109244/japones_xsyx0z.png'
   },
   {
@@ -51,7 +50,7 @@ const idiomasData = [
     subtitulo: 'El lenguaje de las grandes oportunidades.',
     descripcion: '¿Te imaginas negociar con confianza, trabajar en cualquier lugar o disfrutar tus vacaciones como un local? Dominar el inglés a un nivel avanzado ya no es un extra, es tu ventaja competitiva. En LingUp, transformamos tu aprendizaje con una plataforma 100% interactiva diseñada para que domines el inglés americano de forma real, dinámica y profesional. No solo aprendas el idioma, úsalo para transformar tu vida y alcanza el dominio necesario para destacar en cualquier escenario global.',
     textoBoton: 'Domina el inglés hoy',
-    link: 'https://wa.me/1234567890?text=Quiero%20inscribirme%20en%20Inglés',
+    link: 'https://wa.me/5213121157801?text=Quiero%20inscribirme%20en%20Inglés',
     imagen: 'https://res.cloudinary.com/dqozuofy6/image/upload/v1780105785/puente_estadosunidos_xl8xvl.jpg'
   },
   {
@@ -60,7 +59,7 @@ const idiomasData = [
     subtitulo: '你好! (Nǐ hǎo!) Conéctate con el mundo sin barreras.',
     descripcion: 'El mandarín es el idioma clave para los negocios del siglo XXI. En LingUp, te acompañamos desde tus primeros trazos hasta un dominio elemental sólido. Gracias a nuestra plataforma totalmente interactiva aprenderás de manera ágil y efectiva, para que domines los fundamentos con precisión.',
     textoBoton: 'Comienza tu formación',
-    link: 'https://wa.me/1234567890?text=Quiero%20inscribirme%20en%20Chino',
+    link: 'https://wa.me/5213121157801?text=Quiero%20inscribirme%20en%20Chino',
     imagen: 'https://res.cloudinary.com/dqozuofy6/image/upload/v1778109244/china_gwtm5f.png'
   },
   {
@@ -69,7 +68,7 @@ const idiomasData = [
     subtitulo: 'Guten Tag! Entdecken Sie eine neue Welt',
     descripcion: 'Con nuestro curso introductorio te llevamos de la mano desde el inicio hasta un nivel intermedio, en dónde sucede la magia y se convierte en una herramienta real. En LingUp nuestra plataforma 100% interactiva facilita tu progreso, llevándote de los conceptos básicos a una comunicación sólida y real.',
     textoBoton: 'Inscríbete ahora',
-    link: 'https://wa.me/1234567890?text=Quiero%20inscribirme%20en%20Alemán',
+    link: 'https://wa.me/5213121157801?text=Quiero%20inscribirme%20en%20Alemán',
     imagen: 'https://res.cloudinary.com/dqozuofy6/image/upload/v1778109244/aleman_sxslts.png'
   }
 ];
@@ -100,7 +99,6 @@ const FlipCard = ({ idioma, index }) => {
           transform: flipped ? 'rotateY(180deg)' : 'rotateY(0deg)',
         }}
       >
-        {/* CARA FRONTAL */}
         <Card
           sx={{
             position: 'absolute',
@@ -130,7 +128,6 @@ const FlipCard = ({ idioma, index }) => {
           </CardContent>
         </Card>
 
-        {/* CARA TRASERA */}
         <Card
           sx={{
             position: 'absolute',
@@ -148,7 +145,6 @@ const FlipCard = ({ idioma, index }) => {
             boxShadow: '0 10px 30px rgba(0, 191, 165, 0.2)',
           }}
         >
-          {/* Contenedor de texto con scroll oculto para que no se desborde la info */}
           <Box 
             sx={{ 
               overflowY: 'auto', 
@@ -171,7 +167,6 @@ const FlipCard = ({ idioma, index }) => {
             </Typography>
           </Box>
           
-          {/* Botón de Acción dinámico */}
           <Box sx={{ width: '100%', pt: 1, borderTop: '1px solid #edf2f7' }}>
             <Button
               fullWidth
@@ -193,8 +188,8 @@ const FlipCard = ({ idioma, index }) => {
                 transition: 'all 0.2s ease'
               }}
               onClick={(e) => {
-                e.stopPropagation(); // Evita que la tarjeta gire al hacer clic en el botón
-                window.open(idioma.link, '_blank'); // Redirige al link en nueva pestaña
+                e.stopPropagation(); 
+                window.open(idioma.link, '_blank'); 
               }}
             >
               {idioma.textoBoton}
@@ -223,7 +218,7 @@ const Idiomas = () => {
         py: { xs: 8, md: 10 } 
       }}
     >
-      {/* Capa superpuesta ajustada como en Home */}
+      
       <Box 
         sx={{
           position: 'absolute',
@@ -249,7 +244,7 @@ const Idiomas = () => {
               fontWeight: 900, 
               color: colors.blanco, 
               mb: 1,
-              textShadow: '0px 4px 15px rgba(0,0,0,0.5)' // Sombra ajustada
+              textShadow: '0px 4px 15px rgba(0,0,0,0.5)' 
             }}
           >
             Nuestros <span style={{ color: colors.aqua }}>Idiomas</span>
@@ -258,12 +253,12 @@ const Idiomas = () => {
           <Typography 
             variant="body1" 
             sx={{ 
-              color: '#F8FAFC', // Color ajustado para mejor contraste
+              color: '#F8FAFC', 
               maxWidth: '700px', 
               mx: 'auto', 
               fontSize: '1.15rem', 
               lineHeight: 1.8,
-              textShadow: '0px 2px 4px rgba(0,0,0,0.5)' // Sombra para legibilidad
+              textShadow: '0px 2px 4px rgba(0,0,0,0.5)' 
             }}
           >
             Elige el idioma que impulsará tu carrera. Haz click en cada tarjeta para conocer los detalles de nuestros cursos profesionales.
@@ -305,19 +300,19 @@ const Idiomas = () => {
               fontWeight: 700, 
               mb: 2, 
               maxWidth: '800px',
-              textShadow: '0px 2px 4px rgba(0,0,0,0.5)' // Sombra para legibilidad
+              textShadow: '0px 2px 4px rgba(0,0,0,0.5)' 
             }}
           >
-            ¡Incribete hoy! ¿Que esperas para expandir tus horizontes?
+            ¡Inscríbete hoy! ¿Qué esperas para expandir tus horizontes?
           </Typography>
           <Typography 
             variant="body1" 
             sx={{ 
-              color: '#F8FAFC', // Color ajustado
+              color: '#F8FAFC', 
               mb: 4, 
               maxWidth: '600px', 
               fontSize: '1.1rem',
-              textShadow: '0px 2px 4px rgba(0,0,0,0.5)' // Sombra para legibilidad
+              textShadow: '0px 2px 4px rgba(0,0,0,0.5)' 
             }}
           >
             Haz tu registro gratuito y nosotros nos comunicamos contigo vía WhatsApp para resolver todas tus dudas.
@@ -344,7 +339,7 @@ const Idiomas = () => {
               },
               transition: 'all 0.3s ease'
             }}
-            onClick={() => window.open('https://wa.me/1234567890', '_blank')}
+            onClick={() => window.open('https://wa.me/5213121157801', '_blank')}
           >
             Contáctanos por WhatsApp
           </Button>

@@ -22,7 +22,7 @@ const colors = {
 };
 
 const Contacto = () => {
-  // Estado para almacenar los datos del formulario (sin teléfono)
+  
   const [formData, setFormData] = useState({
     nombre: '',
     correo: '',
@@ -30,7 +30,6 @@ const Contacto = () => {
     mensaje: ''
   });
 
-  // Manejador de cambios en los inputs
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -38,14 +37,9 @@ const Contacto = () => {
     });
   };
 
-  // Función para enviar por WhatsApp
   const handleEnviarWhatsApp = () => {
-    const numeroWhatsApp = "529611234567"; // Reemplaza con tu número real sin el +
-    
-    // Formatear el mensaje con los datos del estado
+    const numeroWhatsApp = "5213121157801"; 
     const textoMensaje = `¡Hola! Me gustaría recibir más información.%0A%0A*Nombre:* ${formData.nombre}%0A*Correo:* ${formData.correo}%0A*Idioma de interés:* ${formData.idioma}%0A*Mensaje:* ${formData.mensaje}`;
-    
-    // Redirigir a WhatsApp
     const url = `https://wa.me/${numeroWhatsApp}?text=${textoMensaje}`;
     window.open(url, '_blank');
   };
@@ -68,7 +62,7 @@ const Contacto = () => {
         overflow: 'hidden'
       }}
     >
-      {/* Capa superpuesta ajustada como en Home */}
+     
       <Box 
         sx={{
           position: 'absolute',
@@ -97,7 +91,7 @@ const Contacto = () => {
               mb: 1,
               fontSize: { xs: '2.8rem', md: '4rem' },
               letterSpacing: '-1.5px',
-              textShadow: '0px 4px 15px rgba(0,0,0,0.5)' // Sombra marcada para contraste
+              textShadow: '0px 4px 15px rgba(0,0,0,0.5)' 
             }}
           >
             Ponte en <span style={{ color: colors.aqua }}>Contacto</span>
@@ -111,7 +105,7 @@ const Contacto = () => {
               mx: 'auto', 
               fontSize: '1.2rem', 
               lineHeight: 1.8,
-              textShadow: '0px 2px 4px rgba(0,0,0,0.5)' // Añadida sombra al subtítulo
+              textShadow: '0px 2px 4px rgba(0,0,0,0.5)' 
             }}
           >
             Estamos aquí para ayudarte a dar el siguiente paso. Escríbenos o llámanos; nuestro equipo está listo para resolver todas tus dudas.
@@ -120,7 +114,6 @@ const Contacto = () => {
 
         <Grid container spacing={6} alignItems="stretch">
           
-          {/* Tarjeta de Información de Contacto */}
           <Grid item xs={12} md={5}>
             <Card 
               elevation={10}
@@ -144,7 +137,6 @@ const Contacto = () => {
 
                 <Box sx={{ display: 'flex', flexDirection: 'column', gap: 4, flexGrow: 1 }}>
                   
-                  {/* Item: Teléfono (de la empresa) */}
                   <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 2 }}>
                     <Box sx={{ bgcolor: 'rgba(17, 34, 78, 0.05)', p: 1.5, borderRadius: '12px', display: 'flex' }}>
                       <PhoneIcon sx={{ color: colors.azul, fontSize: 28 }} />
@@ -152,12 +144,11 @@ const Contacto = () => {
                     <Box>
                       <Typography variant="subtitle1" sx={{ fontWeight: 700, color: colors.azul }}>Llámanos</Typography>
                       <Typography variant="body2" sx={{ color: '#475569', mt: 0.5 }}>
-                        +52 961 123 4567
+                        +52 1 312 115 7801
                       </Typography>
                     </Box>
                   </Box>
 
-                  {/* Item: Correo */}
                   <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 2 }}>
                     <Box sx={{ bgcolor: 'rgba(17, 34, 78, 0.05)', p: 1.5, borderRadius: '12px', display: 'flex' }}>
                       <EmailIcon sx={{ color: colors.azul, fontSize: 28 }} />
@@ -170,7 +161,6 @@ const Contacto = () => {
                     </Box>
                   </Box>
 
-                  {/* Item: Horario */}
                   <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 2 }}>
                     <Box sx={{ bgcolor: 'rgba(17, 34, 78, 0.05)', p: 1.5, borderRadius: '12px', display: 'flex' }}>
                       <AccessTimeIcon sx={{ color: colors.azul, fontSize: 28 }} />
@@ -184,7 +174,6 @@ const Contacto = () => {
                   </Box>
                 </Box>
 
-                {/* Redes Sociales */}
                 <Box sx={{ mt: 4, pt: 3, borderTop: '1px solid #E2E8F0', display: 'flex', gap: 2 }}>
                   <IconButton sx={{ bgcolor: colors.azul, color: colors.blanco, '&:hover': { bgcolor: colors.aqua } }}>
                     <FacebookIcon />
@@ -204,7 +193,6 @@ const Contacto = () => {
             </Card>
           </Grid>
 
-          {/* Tarjeta del Formulario */}
           <Grid item xs={12} md={7}>
             <Card 
               elevation={10}

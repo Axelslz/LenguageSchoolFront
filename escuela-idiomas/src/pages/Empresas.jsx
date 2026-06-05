@@ -38,24 +38,25 @@ const Empresas = () => {
   return (
     <Box sx={{ bgcolor: colores.fondo, minHeight: '100vh', pb: 10 }}>
       
-      {/* === SECCIÓN HERO (Banner a todo lo ancho) === */}
       <Box 
-        sx={{
-          position: 'relative',
-          backgroundImage: 'url("https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80")',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          minHeight: { xs: '60vh', md: '70vh' },
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          textAlign: 'center',
-          pt: { xs: 8, sm: 10 },
-          mb: 10,
-          overflow: 'hidden'
-        }}
-      >
-        {/* Capa oscura superpuesta para que el texto sea legible */}
+  sx={{
+    position: 'relative',
+    backgroundImage: 'url("https://res.cloudinary.com/dvjjpeyzh/image/upload/v1780609341/32x13_Related_gen44d.jpg")',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center 15%', // Ancla la imagen un poco más abajo para centrar las caras
+    minHeight: { xs: '45vh', md: '55vh' }, // Altura reducida para evitar que la imagen se recorte en exceso
+    mt: { xs: 8, md: 11 }, // ¡El ajuste clave! Empuja la imagen hacia abajo para que el Navbar no la tape
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    textAlign: 'center',
+    pt: { xs: 4, sm: 6 },
+    pb: { xs: 6, sm: 8 },
+    mb: 10,
+    overflow: 'hidden',
+    borderRadius: { xs: 0, lg: '0 0 24px 24px' } // Opcional: un toque elegante en los bordes inferiores
+  }}
+>
         <Box 
           sx={{
             position: 'absolute',
@@ -79,8 +80,7 @@ const Empresas = () => {
       </Box>
 
       <Container maxWidth="lg">
-        
-        {/* === SECCIÓN INTRODUCCIÓN (Texto más limpio y centrado) === */}
+
         <Box sx={{ maxWidth: '800px', mx: 'auto', textAlign: 'center', mb: 12, animation: `${fadeInUp} 0.8s ease-out 0.2s backwards` }}>
           <Typography variant="body1" sx={{ color: colores.texto, fontSize: '1.2rem', lineHeight: 1.8, mb: 3 }}>
             En el entorno empresarial de hoy, la competitividad ya no solo se mide en infraestructura o tecnología; se mide en la capacidad de su organización para conectar con el mundo.
@@ -96,7 +96,6 @@ const Empresas = () => {
           </Typography>
         </Box>
 
-        {/* === SECCIÓN TARJETAS DE SECTORES === */}
         <Box sx={{ mb: 12, animation: `${fadeInUp} 0.8s ease-out 0.4s backwards` }}>
           <Box sx={{ textAlign: 'center', mb: 7 }}>
             <Typography variant="h3" sx={{ color: colores.azul, fontWeight: 800, mb: 2, fontSize: { xs: '2rem', md: '2.5rem' } }}>
@@ -149,7 +148,6 @@ const Empresas = () => {
           </Grid>
         </Box>
 
-        {/* === SECCIÓN FINAL (Cita y Call to Action) === */}
         <Box sx={{ animation: `${fadeInUp} 0.8s ease-out 0.6s backwards` }}>
           <Paper 
             elevation={0} 
@@ -164,7 +162,7 @@ const Empresas = () => {
               textAlign: 'center'
             }}
           >
-            {/* Decoración de fondo en la tarjeta final */}
+
             <Box sx={{ position: 'absolute', top: -50, right: -50, width: 200, height: 200, borderRadius: '50%', bgcolor: 'rgba(0, 191, 165, 0.1)' }} />
             <Box sx={{ position: 'absolute', bottom: -50, left: -50, width: 150, height: 150, borderRadius: '50%', bgcolor: 'rgba(0, 191, 165, 0.1)' }} />
 

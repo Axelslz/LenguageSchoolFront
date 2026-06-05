@@ -5,6 +5,7 @@ import QuienesSomos from '../pages/QuienesSomos';
 import Idiomas from '../pages/Idiomas';
 import Contactos from '../pages/Contactos';
 import Empresas from '../pages/Empresas';
+import Instituciones from '../pages/Instituciones';
 
 const AppRouter = () => {
   return (
@@ -16,6 +17,7 @@ const AppRouter = () => {
           <Route path="idiomas" element={<Idiomas />} />
           <Route path="contactos" element={<Contactos />} />
           <Route path="empresas" element={<Empresas />} />
+          <Route path="instituciones" element={<Instituciones />} />
         </Route>
       </Routes>
     </Router>
