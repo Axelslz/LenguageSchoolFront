@@ -38,7 +38,7 @@ const Contacto = () => {
   };
 
   const handleEnviarWhatsApp = () => {
-    const numeroWhatsApp = "5213121157801"; 
+    const numeroWhatsApp = "529614567952"; 
     const textoMensaje = `¡Hola! Me gustaría recibir más información.%0A%0A*Nombre:* ${formData.nombre}%0A*Correo:* ${formData.correo}%0A*Idioma de interés:* ${formData.idioma}%0A*Mensaje:* ${formData.mensaje}`;
     const url = `https://wa.me/${numeroWhatsApp}?text=${textoMensaje}`;
     window.open(url, '_blank');
@@ -47,7 +47,7 @@ const Contacto = () => {
   return (
     <Box 
       sx={{ 
-        backgroundImage: `url(${fondoInicio})`,
+        backgroundImage: `url(https://res.cloudinary.com/dvjjpeyzh/image/upload/v1780612857/2_2_yvw8pi.png)`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
@@ -144,7 +144,7 @@ const Contacto = () => {
                     <Box>
                       <Typography variant="subtitle1" sx={{ fontWeight: 700, color: colors.azul }}>Llámanos</Typography>
                       <Typography variant="body2" sx={{ color: '#475569', mt: 0.5 }}>
-                        +52 1 312 115 7801
+                        +52 961 456 7952
                       </Typography>
                     </Box>
                   </Box>

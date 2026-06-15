@@ -1,5 +1,3 @@
-
-
 import React from 'react';
 import { Box, Container, Typography, Grid, Paper, Button } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
@@ -41,7 +39,7 @@ const Instituciones = () => {
             Soluciones para Preparatorias y Universidades
           </Typography>
           <Typography variant="h2" component="h1" sx={{ color: '#FFFFFF', fontWeight: 800, mb: 4, fontSize: { xs: '2.5rem', md: '4rem' }, lineHeight: 1.1 }}>
-            Alianzas del futuro:<br/>Elevamos el nivel global de tu institution.
+            Alianzas del futuro:<br/>Elevamos el nivel global de tu institución.
           </Typography>
           <Typography variant="h6" sx={{ color: colores.textoClaro, fontWeight: 400, lineHeight: 1.6, maxWidth: '800px', mx: 'auto' }}>
             En LingUp, transformamos el aprendizaje de idiomas en una ventaja competitiva institucional. Conectamos el talento de tus estudiantes con las exigencias del entorno global.

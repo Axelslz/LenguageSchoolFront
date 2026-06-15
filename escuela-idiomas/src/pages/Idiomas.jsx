@@ -339,7 +339,7 @@ const Idiomas = () => {
               },
               transition: 'all 0.3s ease'
             }}
-            onClick={() => window.open('https://wa.me/5213121157801', '_blank')}
+            onClick={() => window.open('https://wa.me/529614567952', '_blank')}
           >
             Contáctanos por WhatsApp
           </Button>
